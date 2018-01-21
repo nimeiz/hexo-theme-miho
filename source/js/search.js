@@ -15,6 +15,7 @@ function initSearch() {
                 if (this.status >= 200 && this.status < 300) {
                     var res = JSON.parse(this.response||this.responseText);
                     searchData = res instanceof Array ? res : res.posts;
+                    //console.log(searchData);
                     success(searchData);
                 } else {
                     console.error(this.statusText);
@@ -46,7 +47,7 @@ function initSearch() {
                 });
             }).join('');
         } else {
-            html = '<li class="search-result-item-tips"><p>No Result found!</p></li>';
+            html = '<li class="search-result-item-tips"><p>没有搜索到结果</p></li>';
         }
         searchResult.html(html);
         containerDisplay(true);
@@ -69,7 +70,9 @@ function initSearch() {
         loadData(function (items) {
             var results = [];
             items.forEach( function(item) {
-                if (item.title.toLowerCase().indexOf(keywords) > -1) {
+                if (item.title.toLowerCase().indexOf(keywords) > -1 || 
+                    item.text.toLowerCase().indexOf(keywords) > -1 ||
+                    item.path.toLowerCase().indexOf(keywords) > -1) {
                     results.push(item);
                 }
             });
