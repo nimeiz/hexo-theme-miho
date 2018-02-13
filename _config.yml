@@ -122,6 +122,9 @@ changyan_appkey: false
 youyan_id: false
 # disqus
 disqus: false
+#valine
+valine_id: Ddp6ytOWgSYMnfDQzl3ldgwi-gzGzoHsz
+valine_key: wsujBPodNeNf9yhpGI4iYCas
 
 # Analytics | 分析
 # 站长分析，输入站点id

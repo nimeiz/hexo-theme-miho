@@ -67,6 +67,10 @@
             title: post.title,
             url: config.url+url_for(post.path)
         }) %>
+    <% } else if (theme.valine_id && theme.valine_key) { %>
+        <div class="article-entry article">
+          <%- partial('plugins/comments/valine') %>
+        </div>
     <% } else if (theme.youyan_id) { %>
         <%- partial('plugins/comments/youyan') %>
     <% } else if (theme.disqus || config.disqus_shortname) { %>
